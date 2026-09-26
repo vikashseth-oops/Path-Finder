@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-main: #0B0F19;
+    --bg-card: rgba(17, 24, 39, 0.7);
+    --border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  body {
+    background-color: #080C14;
+    color: #F3F4F6;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+    user-select: none;
+  }
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0b0f19;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f293d;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #374151;
+}
+
+/* Node Animations */
+@keyframes nodeVisited {
+  0% {
+    transform: scale(0.3);
+    background-color: rgba(14, 165, 233, 0.75);
+    border-radius: 100%;
+  }
+  50% {
+    background-color: rgba(99, 102, 241, 0.85);
+  }
+  75% {
+    transform: scale(1.15);
+    background-color: rgba(168, 85, 247, 0.9);
+  }
+  100% {
+    transform: scale(1);
+    background-color: rgba(59, 130, 246, 0.8);
+    border-radius: 4px;
+  }
+}
+
+@keyframes nodeShortestPath {
+  0% {
+    transform: scale(0.5);
+    background-color: #f59e0b;
+    border-radius: 100%;
+  }
+  50% {
+    transform: scale(1.25);
+    background-color: #fbbf24;
+  }
+  100% {
+    transform: scale(1);
+    background-color: #10b981;
+    border-radius: 4px;
+    box-shadow: 0 0 12px rgba(16, 185, 129, 0.8);
+  }
+}
+
+@keyframes wallPop {
+  0% {
+    transform: scale(0.4);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-visited {
+  animation: nodeVisited 0.4s ease-out forwards;
+}
+
+.animate-shortest-path {
+  animation: nodeShortestPath 0.5s ease-out forwards;
+}
+
+.animate-wall {
+  animation: wallPop 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* Glassmorphism utilities */
+.glass-panel {
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-glow {
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37), 0 0 20px rgba(99, 102, 241, 0.15);
+}
